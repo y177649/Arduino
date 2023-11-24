@@ -26,8 +26,8 @@ void loop() {
   // タッチデータのリセット
   TouchData = "";
 
-  // センサー1の状態の読み取り
-  for (uint8_t i = 0; i < 12; i++) {
+  // センサー1 (0x5A) の状態の読み取り（逆順）
+  for (int8_t i = 11; i >= 0; i--) {
     if (cap1.touched() & (1 << i)) {
       TouchData += "1";
     } else {
@@ -35,8 +35,8 @@ void loop() {
     }
   }
 
-  // センサー2の状態の読み取り
-  for (uint8_t i = 0; i < 12; i++) {
+  // センサー2 (0x5B) の状態の読み取り（逆順）
+  for (int8_t i = 11; i >= 0; i--) {
     if (cap2.touched() & (1 << i)) {
       TouchData += "1";
     } else {
